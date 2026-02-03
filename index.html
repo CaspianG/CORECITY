@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/CORECITY/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>corecity-site</title>
+  <style>
+    #error-display {
+      display: none;
+      padding: 20px;
+      background: #ffebee;
+      color: #b71c1c;
+      border: 2px solid #d32f2f;
+      margin: 20px;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+  <script>
+    window.onerror = function (message, source, lineno, colno, error) {
+      var display = document.getElementById('error-display');
+      if (display) {
+        display.style.display = 'block';
+        display.innerHTML += 'Global Error: ' + message + '\nSource: ' + source + ':' + lineno + '\n\n';
+      }
+    };
+    window.addEventListener('unhandledrejection', function (event) {
+      var display = document.getElementById('error-display');
+      if (display) {
+        display.style.display = 'block';
+        display.innerHTML += 'Promise Rejection: ' + event.reason + '\n\n';
+      }
+    });
+    // Capture resource loading errors (img, script, css)
+    window.addEventListener('error', function (event) {
+      var display = document.getElementById('error-display');
+      if (display && (event.target.tagName === 'SCRIPT' || event.target.tagName === 'LINK')) {
+        display.style.display = 'block';
+        display.innerHTML += 'Resource Error: Failed to load ' + event.target.tagName + ' from ' + (event.target.src || event.target.href) + '\n\n';
+      }
+    }, true);
+  </script>
+  <script type="module" crossorigin src="/CORECITY/assets/index-1fJSXTbM.js"></script>
+  <link rel="stylesheet" crossorigin href="/CORECITY/assets/index-C6G_3qQV.css">
+</head>
+
+<body style="background-color: #111; color: #fff;">
+  <div id="error-display"></div>
+  <div id="root">
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif;">
+      <h1>Loading CORECITY...</h1>
+      <p>If this message stays for more than 10 seconds, something is broken.</p>
+    </div>
+  </div>
+</body>
+
+</html>
