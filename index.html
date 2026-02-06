@@ -3,9 +3,9 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/CORECITY/vite.svg" />
+  <link rel="icon" type="image/png" href="/CORECITY/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>corecity-site</title>
+  <title>CORECITY</title>
   <style>
     #error-display {
       display: none;
@@ -20,6 +20,11 @@
   </style>
   <script>
     window.onerror = function (message, source, lineno, colno, error) {
+      // Ignore extension errors and common benign resize warnings
+      if (source && source.includes('chrome-extension')) return;
+      if (message && message.includes('disconnected port')) return;
+      if (message && message.includes('ResizeObserver loop')) return;
+
       var display = document.getElementById('error-display');
       if (display) {
         display.style.display = 'block';
@@ -42,8 +47,8 @@
       }
     }, true);
   </script>
-  <script type="module" crossorigin src="/CORECITY/assets/index-1fJSXTbM.js"></script>
-  <link rel="stylesheet" crossorigin href="/CORECITY/assets/index-C6G_3qQV.css">
+  <script type="module" crossorigin src="/CORECITY/assets/index-DzSO3hoc.js"></script>
+  <link rel="stylesheet" crossorigin href="/CORECITY/assets/index-DZ-Y0Rp-.css">
 </head>
 
 <body style="background-color: #111; color: #fff;">
